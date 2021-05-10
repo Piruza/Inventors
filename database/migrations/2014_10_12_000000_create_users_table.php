@@ -16,13 +16,16 @@ class CreateUsersTable extends Migration
         Schema::enableForeignKeyConstraints();
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('firstname');
-            $table->string('lastname');
+            $table->string('fullName')->nullable();
+            $table->string('email')->nullable();
+            $table->string('personalNumber')->nullable();
             $table->tinyInteger('isPhysical');
-            $table->unsignedBigInteger('type_id');
-            $table->string('email')->unique();
+            $table->string('legalName')->nullable();
+            $table->string('legalContactFullName')->nullable();
+            $table->string('legalPersonalNumber')->nullable();
+            $table->tinyInteger('clientLegalTypeId')->nullable();
+            $table->unsignedBigInteger('typeId');
             $table->string('phone')->unique();
-            $table->text('address')->nullable();
             $table->text('doc_front_side')->nullable();
             $table->text('doc_rear_side')->nullable();
             $table->string('password');

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Inventors'),
 
     /*
     |--------------------------------------------------------------------------
@@ -120,6 +120,7 @@ return [
     */
 
     'key' => env('APP_KEY'),
+    'CATALOG_API_KEY' => 'OEM-API-A8C4145D-CC2B-449B-B613-3A2D3456E7AF',
 
     'cipher' => 'AES-256-CBC',
 

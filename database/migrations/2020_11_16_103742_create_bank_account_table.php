@@ -16,7 +16,10 @@ class CreateBankAccountTable extends Migration
         Schema::create('bank_accounts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('acc_number');
+            $table->string('accountNumber')->nullable();
+            $table->string('nameOnCard')->nullable();
+            $table->string('cardNumber')->nullable();
+            $table->string('ccv')->nullable();
             $table->string('last_four')->nullable();
             $table->string('exp_date')->nullable();
             $table->string('front_side')->nullable();

@@ -13,7 +13,7 @@ class SmsNotification extends Model
 
     protected $guarded = [];
 
-    public static function sendSMS($phone, $text, $user){
+    public static function sendSMS($phone, $text){
         $opts = array('http'=>array(
                 'method'=>"GET",
                 'header'=>"MSG_HEADER: 5TJps5Wj"
@@ -42,7 +42,6 @@ class SmsNotification extends Model
         }
 
         self::create([
-            'user_id' => $user->id,
             'phone' => $phone,
             'text' => $text,
             'status_code' => $result[0],

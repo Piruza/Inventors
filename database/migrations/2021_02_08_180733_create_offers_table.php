@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSmsNotificationsTable extends Migration
+class CreateOffersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateSmsNotificationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sms_notifications', function (Blueprint $table) {
+        Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->string('phone');
-            $table->string('text');
-            $table->string('status_code');
-            $table->string('receiver_id');
+            $table->bigInteger('user_id');
+            $table->bigInteger('orderId');
+            $table->string('price');
+            $table->string('condition');
+            $table->string('guaranteeDays');
+            $table->string('deliveryDays');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateSmsNotificationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sms_notifications');
+        Schema::dropIfExists('offers');
     }
 }

@@ -16,11 +16,9 @@ class CreatePhoneVerificationsTable extends Migration
         Schema::create('phone_verifications', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->unsignedBigInteger('user_id');
-            $table->tinyInteger('has_used')->default(0);
+            $table->string('phone');
+            $table->tinyInteger('verified')->default(0);
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
